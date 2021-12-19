@@ -1,0 +1,24 @@
+<project name="BUI" basedir="." default="clean">
+
+    <target name="clean" depends="run">
+        <delete dir="jars"/>
+        <delete file="MyTasks.jar"/>
+    </target>
+	
+	<target name="run" depends="compile">  
+	  <java classname = "HelloWorld">    
+		<classpath path="src" /> 
+	   </java>  
+    </target>
+	
+    <target name="compile" depends="jar">
+        <javac srcdir="src" destdir="jars" includeantruntime="false" />
+    </target>
+
+    <target name="jar">
+    	<mkdir dir="jars" />
+        <jar destfile="jars/MyTask.jar" basedir="jars"/>
+    </target>
+
+</project>
+
